@@ -1,0 +1,20 @@
+-------------------------------------------------------------------------------
+Test set: JUnit Jupiter
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0 s <<< FAILURE! -- in JUnit Jupiter
+JUnit Jupiter.JUnit Jupiter -- Time elapsed: 0 s <<< ERROR!
+org.junit.platform.commons.JUnitException: 
+The wrapped NoSuchMethodError is likely caused by the versions of JUnit jars on the classpath/module path not being properly aligned. 
+Please ensure consistent versions are used (see https://docs.junit.org/5.13.4/user-guide/#dependency-metadata).
+The following conflicting versions were detected:
+- org.junit.jupiter.api: 5.13.4
+- org.junit.jupiter.engine: 5.13.4
+- org.junit.platform.commons: 1.14.2
+- org.junit.platform.engine: 1.14.2
+- org.junit.platform.launcher: 1.13.4
+- org.junit.platform.suite.api: 1.13.4
+- org.junit.platform.suite.commons: 1.13.4
+- org.junit.platform.suite.engine: 1.13.4
+
+Caused by: java.lang.NoSuchMethodError: 'org.junit.platform.engine.ExecutionRequest org.junit.platform.engine.ExecutionRequest.create(org.junit.platform.engine.TestDescriptor, org.junit.platform.engine.EngineExecutionListener, org.junit.platform.engine.ConfigurationParameters, org.junit.platform.engine.reporting.OutputDirectoryProvider, org.junit.platform.engine.support.store.NamespacedHierarchicalStore)'
+

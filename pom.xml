@@ -29,6 +29,19 @@
         <maven.surefire.version>3.5.3</maven.surefire.version>
     </properties>
 
+    <!-- Gerenciador de Versões: Alinha rigorosamente todo o ecossistema JUnit 5 -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.junit</groupId>
+                <artifactId>junit-bom</artifactId>
+                <version>${junit.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
 
         <!-- ======================================= -->
@@ -73,13 +86,34 @@
 
 
         <!-- ======================================= -->
-        <!-- JUNIT 5 -->
+        <!-- JUNIT 5 (Versões gerenciadas pelo BOM) -->
         <!-- ======================================= -->
 
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
-            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- JUnit 5 Platform Suite (Habilita @Suite de forma alinhada) -->
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-suite</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Força o alinhamento do launcher para resolver o erro NoSuchMethodError -->
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-launcher</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- JUnit 4 Legado (Mantido caso tenha testes antigos) -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.1</version>
             <scope>test</scope>
         </dependency>
 
@@ -133,4 +167,3 @@
     </build>
 
 </project>
-
